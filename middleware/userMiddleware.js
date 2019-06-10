@@ -160,7 +160,7 @@ var base64 = {
       {
           try{
 
-            var file = fs.createWriteStream(`images/${userId}`);
+            var file = fs.createWriteStream(`../images/${userId}`);
             https.get(`https://plus.google.com/s2/photos/profile/${req.params.userId}?sz=100`, function(response) {
               response.pipe(file);
               res.status(200).json(base64(response));
@@ -171,7 +171,7 @@ var base64 = {
           }
       }
       else{
-        res.status(200).json(base64(`images/${req.params.userId}`));
+        res.status(200).json(base64(`../images/${req.params.userId}`));
       }
 
   cameIDs.push(req.params.userId);
@@ -180,7 +180,7 @@ var base64 = {
 
 
  const DeleteImage = (req, res, next)=>{
-    var filePath = `images/${req.params.userId}`; 
+    var filePath = `../images/${req.params.userId}`; 
     fs.unlinkSync(filePath);
   
  }
