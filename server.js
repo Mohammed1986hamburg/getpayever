@@ -16,7 +16,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
-CronJob(1);
+//CronJob(1);
 
 app.use('/api/user', usersRouter);
 app.use(errorHandler);
